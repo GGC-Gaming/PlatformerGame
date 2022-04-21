@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D myBod;
     GroundCheck myGC;
+    Animator myAnim;
 
     public float speed;
     public float jump;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         myBod = GetComponent<Rigidbody2D>();
+        myAnim = GetComponent<Animator>();
         myGC = GetComponentInChildren<GroundCheck>();
     }
 
@@ -23,6 +25,15 @@ public class PlayerController : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float vx = speed * h;
         float vy = myBod.velocity.y;
+
+        if (Mathf.Abs(h) > 0.1)
+        {
+            myAnim.SetBool("RUN", true);
+        }
+        else
+        {
+            myAnim.SetBool("RUN", false);
+        }
 
         if (Input.GetButtonDown("Jump") && myGC.isGrounded)
         {
