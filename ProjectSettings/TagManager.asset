@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - DangerousObject
+  - Fall
   layers:
   - Default
   - TransparentFX

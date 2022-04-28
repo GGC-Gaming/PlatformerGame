@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FlagGoal : MonoBehaviour
 {
@@ -13,10 +14,20 @@ public class FlagGoal : MonoBehaviour
         if (otherObject.name == "Player")
         {
 
-            //If the player entered this object's trigger collider, close the application.
-            //This will need to be changed to go to next level, but close application on no next level.
+            //This will send the player to the next level, according to the build settings.
+            //If there is not a next level, end the game.
             Debug.Log("Player has reached an exit!");
-            Application.Quit();
+
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            if (SceneManager.sceneCount > currentSceneIndex)
+            {
+                SceneManager.LoadScene(currentSceneIndex + 1);
+            } else
+            {
+                Debug.Log("The game should have closed.");
+                Application.Quit();
+            }
+
         }
     }
 
