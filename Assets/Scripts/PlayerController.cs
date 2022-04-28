@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D myBod;
     GroundCheck myGC;
     Animator myAnim;
+    Text livesText;
 
     public float speed;
     public float jump;
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
         myBod = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
         myGC = GetComponentInChildren<GroundCheck>();
+        livesText = GameObject.Find("Lives").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -50,6 +53,7 @@ void takeDamage()
         {
             // Resets the current scene to the beginning 
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            livesText.text = "Lives: " + lives;
             lives--;
             Debug.Log(lives);
         }
