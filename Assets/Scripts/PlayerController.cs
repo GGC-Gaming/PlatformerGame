@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public float jump;
+    public static int lives = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -40,5 +42,28 @@ public class PlayerController : MonoBehaviour
             vy = jump;
         }
         myBod.velocity = new Vector2(vx, vy);
+    }
+
+void takeDamage()
+    {
+        if (lives > 0)
+        {
+            // Resets the current scene to the beginning 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            lives--;
+            Debug.Log(lives);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+void OnTriggerEnter2D(Collider2D otherObject)
+    {
+        if (otherObject.tag == "DangerousObject")
+        {
+
+            takeDamage();
+        }
     }
 }
