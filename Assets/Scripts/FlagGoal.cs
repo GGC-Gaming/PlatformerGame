@@ -19,7 +19,7 @@ public class FlagGoal : MonoBehaviour
             Debug.Log("Player has reached an exit!");
 
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            if (SceneManager.sceneCount > currentSceneIndex)
+            if (SceneManager.sceneCount >= currentSceneIndex)
             {
                 SceneManager.LoadScene(currentSceneIndex + 1);
             } else
