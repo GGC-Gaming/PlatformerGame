@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     GroundCheck myGC;
     Animator myAnim;
     Text livesText;
+    private SpriteRenderer _renderer;
 
     public float speed;
     public float jump;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
         myAnim = GetComponent<Animator>();
         myGC = GetComponentInChildren<GroundCheck>();
         livesText = GameObject.Find("Lives").GetComponent<Text>();
+        _renderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -38,6 +40,17 @@ public class PlayerController : MonoBehaviour
         else
         {
             myAnim.SetBool("RUN", false);
+        }
+
+        if (vx != 0) {
+            if (vx > 0)
+            {
+                _renderer.flipX = false;
+            }
+            else
+            {
+                _renderer.flipX = true;
+            }
         }
 
         if (Input.GetButtonDown("Jump") && myGC.isGrounded)
