@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 311318312590493203}
   - component: {fileID: 4857573112647519178}
   - component: {fileID: 9019786965716815516}
+  - component: {fileID: 3304394885166215101}
   m_Layer: 0
   m_Name: SawBlade
   m_TagString: DangerousObject
@@ -99,3 +100,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3304394885166215101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363893370347219372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e45c4ae3aa578346a590b1fb157af46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
