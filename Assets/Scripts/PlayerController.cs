@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public float jump;
-    public static int lives = 1;
+    public static int lives = 3;
 
     // Start is called before the first frame update
     void Start()
